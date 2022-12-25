@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import React, { useCallback, useState } from "react";
 import "./App.css";
 import "./components/Button.module.css";
 import Header from "./components/Header";
@@ -19,34 +18,29 @@ import EditDialog from "./components/dialog/EditDialog";
 import DeleteDialog from "./components/dialog/DeleteDialog";
 import { ReactDOM } from "react";
 
+import React, { useCallback, useState } from "react";
 import { ThemeContext, themes } from "./themeContext";
 import ThemedButton from "./ThemedButton";
 import Toolbar from "./Toolbar";
-
-// An intermediate component that uses the ThemedButton
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       theme: themes.light,
-    };
-
-    this.toggleTheme = () => {
-      this.setState((state) => ({
-        theme: state.theme === themes.dark ? themes.light : themes.dark,
-      }));
+      toggleTheme: () => {
+        this.setState((state) => ({
+          theme: state.theme === themes.dark ? themes.light : themes.dark,
+        }));
+      },
     };
   }
 
   render() {
-    // The ThemedButton button inside the ThemeProvider
-    // uses the theme from state while the one outside uses
-    // the default dark theme
     return (
       <>
-        <ThemeContext.Provider value={this.state.theme}>
-          <Toolbar changeTheme={this.toggleTheme} />
+        <ThemeContext.Provider value={this.state}>
+          <Toolbar />
         </ThemeContext.Provider>
         <ThemedButton>Static</ThemedButton>
       </>

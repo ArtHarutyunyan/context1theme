@@ -1,10 +1,10 @@
 import React from "react";
 import ThemedButton from "./ThemedButton";
 
-function Toolbar(props) {
+function Toolbar() {
   return (
     <div>
-      <ThemedButton onClick={props.changeTheme}>Change Theme</ThemedButton>
+      <ThemedButton>Change Theme</ThemedButton>
     </div>
   );
 }

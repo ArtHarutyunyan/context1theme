@@ -3,10 +3,10 @@ import React, { useCallback, useContext, useState } from "react";
 import Button from "./components/Button";
 
 function ThemedButton({ children, ...restProps }) {
-  const theme = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <Button theme={theme} {...restProps}>
+    <Button theme={theme} onClick={toggleTheme} {...restProps}>
       {children}
     </Button>
   );
