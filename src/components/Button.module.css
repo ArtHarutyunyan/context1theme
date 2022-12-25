@@ -1,0 +1,9 @@
+.primary_button {
+  background-color: rgb(179, 255, 0);
+  color: rgb(0, 3, 0);
+}
+
+.secondary_button {
+  background-color: rgb(113, 161, 240);
+  color: hwb(280 99% 0%);
+}

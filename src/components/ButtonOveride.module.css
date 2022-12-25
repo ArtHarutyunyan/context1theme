@@ -1,0 +1,9 @@
+.primary_button {
+  background-color: orange;
+  color: blueviolet;
+}
+
+.secondary_button {
+  background-color: rgb(113, 161, 240);
+  color: hwb(280 99% 0%);
+}
