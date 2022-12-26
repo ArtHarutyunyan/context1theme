@@ -23,32 +23,48 @@ import { ThemeContext, themes } from "./themeContext";
 import ThemedButton from "./ThemedButton";
 import Toolbar from "./Toolbar";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      theme: themes.light,
-      toggleTheme: () => {
-        this.setState((state) => ({
-          theme: state.theme === themes.dark ? themes.light : themes.dark,
-        }));
-      },
-    };
-  }
-
-  render() {
-    return (
-      <>
-        <ThemeContext.Provider value={this.state}>
-          <Toolbar />
-        </ThemeContext.Provider>
-        <ThemedButton>Static</ThemedButton>
-      </>
-    );
-  }
+function App(props) {
+  const [theme, setTheme] = useState(themes.light);
+  const toggleTheme = () => {
+    setTheme(theme === themes.dark ? themes.light : themes.dark);
+  };
+  return (
+    <>
+      <ThemeContext.Provider value={{ theme: theme, toggleTheme: toggleTheme }}>
+        <Toolbar />
+      </ThemeContext.Provider>
+      <ThemedButton>Static</ThemedButton>
+    </>
+  );
 }
 
 export default App;
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       theme: themes.light,
+//       toggleTheme: () => {
+//         this.setState((state) => ({
+//           theme: state.theme === themes.dark ? themes.light : themes.dark,
+//         }));
+//       },
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <ThemeContext.Provider value={this.state}>
+//           <Toolbar />
+//         </ThemeContext.Provider>
+//         <ThemedButton>Static</ThemedButton>
+//       </>
+//     );
+//   }
+// }
+
+// export default App;
 
 // function App() {
 //   // Declare a new state variable, which we'll call "count"

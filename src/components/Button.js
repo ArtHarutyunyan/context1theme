@@ -1,19 +1,30 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-class Button extends React.Component {
-  render() {
-    const { children, theme, ...restProps } = this.props;
-    return (
-      <button
-        style={{ backgroundColor: theme.background, color: theme.foreground }}
-        {...restProps}
-      >
-        {children}
-      </button>
-    );
-  }
+function Button(props) {
+  const { children, theme, ...restProps } = props;
+  return (
+    <button
+      style={{ backgroundColor: theme.background, color: theme.foreground }}
+      {...restProps}
+    >
+      {children}
+    </button>
+  );
 }
+// class Button extends React.Component {
+//   render() {
+//     const { children, theme, ...restProps } = this.props;
+//     return (
+//       <button
+//         style={{ backgroundColor: theme.background, color: theme.foreground }}
+//         {...restProps}
+//       >
+//         {children}
+//       </button>
+//     );
+//   }
+// }
 
 // class Button extends React.Component {
 //   componentDidMount() {
